@@ -1,10 +1,15 @@
-import { chapter_verses, valid_chapter_verses } from './chapters/chapters.js';
+import { chapter_verses } from './chapters/chapters.js';
 
-const test_box = document.querySelector('#test');
-test_box.value = "test box";
+try {
+    const test_box = document.querySelector('#test');
+    test_box.value = "test box";
+} catch {
+    console.log("delete this later it doesnt load if u run it from console");
+}
+
 
 const chapters = {};
-const chapter_number = 1; 
+const chapter_number = 2; 
 
 var verse_range = [];
 for (var i = 40; i <= 50; i++) {
@@ -23,13 +28,13 @@ function generate_random_verse(chapter_number) {
     const max_verse_number = chapters[chapter_number];
 
     const this_chapter = chapter_verses[chapter_number - 1].verses;
-    const this_chapter_with_valid_verses = valid_chapter_verses[chapter_number - 1].valid_verses;
+    //const this_chapter_with_valid_verses = valid_chapter_verses[chapter_number - 1].valid_verses;
 
     let random_verse;
 
-    do {
-        random_verse = Math.floor(Math.random() * max_verse_number) + 1;
-    } while (this_chapter_with_valid_verses[random_verse]);
+    //do {
+    random_verse = Math.floor(Math.random() * max_verse_number) + 1;
+    //} while (this_chapter_with_valid_verses[random_verse]);
 
     const generated_verse = this_chapter[random_verse];
     const verse_number = find_verse_number(this_chapter, generated_verse);
@@ -71,22 +76,33 @@ function main() {
     const next_verse = (chapter_verses[chapter_number - 1].verses)[verse_number];
 
     var number_of_words = 3;
-    const this_verse_output = document.querySelector('#current_verse_output');
-    const next_verse_output =  document.querySelector('#next_verse_output');
 
-    const this_verse_trimmed = show_words(this_verse, number_of_words);
-    const next_verse_trimmed = show_words(next_verse, number_of_words);
+    console.log(show_words(this_verse, number_of_words));
+    console.log(show_words(next_verse, number_of_words));
+    console.log("delete after");
 
-    this_verse_output.value = this_verse_trimmed;
-    next_verse_output.value = next_verse_trimmed;
+    try {
+
     
-    if (!is_end_of_verse(this_verse, number_of_words)) {
-        this_verse_output.value = "..." + this_verse_trimmed;
-    } 
+        const this_verse_output = document.querySelector('#current_verse_output');
+        const next_verse_output =  document.querySelector('#next_verse_output');
 
-    if (!is_end_of_verse(next_verse, number_of_words)) {
-        next_verse_output.value = "..." + next_verse_trimmed;
-    } 
+        const this_verse_trimmed = show_words(this_verse, number_of_words);
+        const next_verse_trimmed = show_words(next_verse, number_of_words);
+
+        this_verse_output.value = this_verse_trimmed;
+        next_verse_output.value = next_verse_trimmed;
+        
+        if (!is_end_of_verse(this_verse, number_of_words)) {
+            this_verse_output.value = "..." + this_verse_trimmed;
+        } 
+
+        if (!is_end_of_verse(next_verse, number_of_words)) {
+            next_verse_output.value = "..." + next_verse_trimmed;
+        } 
+    } catch {
+        console.log("skipping");
+    }
 
 }
 
