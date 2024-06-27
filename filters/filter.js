@@ -1,5 +1,9 @@
-const min_chapter = 1;
-const max_chapter = 4;
+
+
+
+
+const min_chapter = 2;
+const max_chapter = 2;
 
 const min_page = 1;
 const max_page = 2;
@@ -16,4 +20,4 @@ function sum_filters(chapter_number, page_number){
 }
 
 
-export { chapter_number }//, page_number };
+export { chapter_number, page_number };

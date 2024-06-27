@@ -1,5 +1,5 @@
-import { all_chapters } from './chapters/chapters.js';
-import { chapter_number } from './filters/filter.js';
+import { all_chapters, chapter_and_verse_number } from './chapters/chapters.js';
+import { chapter_number } from './filters/chapters_filter.js';
 
 try {
     const test_box = document.querySelector('#test');
@@ -10,23 +10,8 @@ try {
 }
 
 
-const chapters = {};
-
-var verse_range = [];
-for (var i = 40; i <= 50; i++) {
-    verse_range.push(i);
-}
-
-all_chapters.forEach((chapter, index) => {
-    const chapter_number = index + 1;
-    const number_of_verses = Object.keys(chapter.verses).length;
-    chapters[chapter_number] = number_of_verses;
-});
-
-
-
 function generate_random_verse(chapter_number) {
-    const max_verse_number = chapters[chapter_number];
+    const max_verse_number = chapter_and_verse_number[chapter_number];
     const this_chapter = all_chapters[chapter_number - 1].verses;
 
     var random_verse;

@@ -20,4 +20,25 @@ const all_chapters = [
     { chapter: 'Chapter 4', verses: chapter_4.chapter_4_verses }
 ];
 
-export { all_chapters };
+const chapter_and_verse_number = {};
+
+all_chapters.forEach((chapter, index) => {
+    const chapter_number = index + 1;
+    const number_of_verses = Object.keys(chapter.verses).length;
+    chapter_and_verse_number[chapter_number] = number_of_verses;
+});
+
+
+function get_all_verses() {
+    let merged_verses = ["Placeholder string for index 0"];
+
+    all_chapters.forEach(chapter => {
+        merged_verses = merged_verses.concat(Object.values(chapter.verses));
+    });
+
+    return merged_verses;
+
+}
+const all_verses = get_all_verses();
+
+export { all_chapters, chapter_and_verse_number, all_verses };

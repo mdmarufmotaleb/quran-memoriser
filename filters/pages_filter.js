@@ -1,17 +1,5 @@
-import { all_chapters } from '../chapters/chapters.js';
-
-//IT WORKS BUT CHANGE IT TO RIGHT TO LEFT its working in main file not here idk why
-const merge_chapters = () => {
-    let merged_verses = ["Placeholder string for index 0"];
-
-    all_chapters.forEach(chapter => {
-        merged_verses = merged_verses.concat(Object.values(chapter.verses));
-    });
-
-    return merged_verses;
-};
-
-const number_of_pages = 3;
+import { all_verses } from '../chapters/chapters.js';
+import { page_number } from './filter.js';
 
 const pages = {};
 
@@ -40,12 +28,11 @@ const get_verse_range = (page_number) => {
     return { start_index, end_index };
 };
 
-const merged_verses = merge_chapters();
-
-for (let i = 1; i <= number_of_pages; i++) {
+for (let i = 1; i <= page_number; i++) {
     const { start_index, end_index } = get_verse_range(i);
-    pages[i] = merged_verses.slice(start_index, end_index + 1);
+    pages[i] = all_verses.slice(start_index, end_index + 1);//FIX THIS NEXT 
 }
 
-const example_page = 2;
-console.log(`Verses for page ${example_page}:`, pages[example_page]);
+const this_page = pages[page_number];
+//console.log(`Verses for page ${page_number}:`, this_page);
+export { this_page };
