@@ -13,21 +13,11 @@ import * as chapter_112 from './chapter_112.js';
 import * as chapter_113 from './chapter_113.js';
 import * as chapter_114 from './chapter_114.js';
 
-const chapter_verses = [
+const all_chapters = [
     { chapter: 'Chapter 1', verses: chapter_1.chapter_1_verses },
     { chapter: 'Chapter 2', verses: chapter_2.chapter_2_verses },
     { chapter: 'Chapter 3', verses: chapter_3.chapter_3_verses },
     { chapter: 'Chapter 4', verses: chapter_4.chapter_4_verses }
-    //{ chapter: 'Chapter 105', verses: chapter_105.chapter_105_verses },
 ];
 
-const valid_chapter_verses = chapter_verses.map(chapter => {
-    const valid_verses = {};
-    Object.keys(chapter.verses).forEach(key => {
-        const verseText = chapter.verses[key];
-        valid_verses[key] = verseText;
-    });
-    return { chapter: chapter.chapter, valid_verses: valid_verses };
-});
-
-export { chapter_verses, valid_chapter_verses };
+export { all_chapters };
