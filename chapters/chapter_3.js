@@ -1,6 +1,7 @@
 const chapter_3_verses = {
-    1: "s1wf wev1",
-    2: "sfw wwefwe1v2"
+    1: "chapter 3",
+    2: "wefwef 333",
+    3: "shapter 3 verse 3333"
 };
 
 

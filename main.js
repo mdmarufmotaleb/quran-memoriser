@@ -1,15 +1,17 @@
 import { chapter_verses } from './chapters/chapters.js';
+import { chapter_number } from './filters/chapters_filter.js';
 
 try {
     const test_box = document.querySelector('#test');
     test_box.value = "test box";
+    test_box.value = chapter_number;
 } catch {
     console.log("delete this later it doesnt load if u run it from console");
 }
 
 
 const chapters = {};
-const chapter_number = 2; 
+//const chapter_number = 2; 
 
 var verse_range = [];
 for (var i = 40; i <= 50; i++) {
@@ -57,7 +59,15 @@ function find_verse_number(chapter, verse_to_find) {
 }
 
 function show_words(verse, number_of_words) {
-    return verse.split(" ").slice(0, number_of_words).join(" ");
+    var result;
+    try {
+        result = verse.split(" ").slice(0, number_of_words).join(" ");
+    } catch {
+        result = "End of Chapter";
+    }
+    return result;
+
+    
 }
 
 function is_end_of_verse(verse, number_of_words) {
@@ -73,17 +83,27 @@ function main() {
     const this_verse = (chapter_verses[chapter_number - 1].verses)[verse_number];
     
     var verse_number = (parseInt(verse_number) + 1).toString();
-    const next_verse = (chapter_verses[chapter_number - 1].verses)[verse_number];
-
+    var next_verse = "";
+    try {
+        next_verse = (chapter_verses[chapter_number - 1].verses)[verse_number];
+    } catch {
+        next_verse = "End of Surah";
+    };
+    
     var number_of_words = 3;
 
-    console.log(show_words(this_verse, number_of_words));
-    console.log(show_words(next_verse, number_of_words));
+
+    console.log("This verse: " + show_words(this_verse, number_of_words));
+    try {
+        console.log("Next Verse: " + show_words(next_verse, number_of_words));
+    } catch {
+        console.log("End of Chapter");
+    }
     console.log("delete after");
 
     try {
 
-    
+        //THE ERROR IS HERE. CHECK IF NEXT VERSE EXISTS
         const this_verse_output = document.querySelector('#current_verse_output');
         const next_verse_output =  document.querySelector('#next_verse_output');
 
@@ -97,11 +117,16 @@ function main() {
             this_verse_output.value = "..." + this_verse_trimmed;
         } 
 
-        if (!is_end_of_verse(next_verse, number_of_words)) {
-            next_verse_output.value = "..." + next_verse_trimmed;
-        } 
+        try {
+            if (!is_end_of_verse(next_verse, number_of_words)) {
+                next_verse_output.value = "..." + next_verse_trimmed;
+            } 
+        } catch {
+            next_verse_output.value = "End of Chapter";
+        }
+        
     } catch {
-        console.log("skipping");
+        console.log("skippi since it doesnt work from consoleng");
     }
 
 }
