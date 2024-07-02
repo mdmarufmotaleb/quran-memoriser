@@ -14,11 +14,13 @@ import * as chapter_113 from './chapter_113.js';
 import * as chapter_114 from './chapter_114.js';
 
 const all_chapters = [
-    { chapter: 'Chapter 1', verses: chapter_1.chapter_1_verses },
-    { chapter: 'Chapter 2', verses: chapter_2.chapter_2_verses },
-    { chapter: 'Chapter 3', verses: chapter_3.chapter_3_verses },
-    { chapter: 'Chapter 4', verses: chapter_4.chapter_4_verses }
+    { verses: chapter_1.chapter_1_verses },
+    { verses: chapter_2.chapter_2_verses },
+    { verses: chapter_3.chapter_3_verses },
+    { verses: chapter_4.chapter_4_verses }
 ];
+
+//fix this next. check the below codes esp all verses.
 
 const chapter_and_verse_number = {};
 

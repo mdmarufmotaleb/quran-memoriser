@@ -30,9 +30,9 @@ const get_verse_range = (page_number) => {
 
 for (let i = 1; i <= page_number; i++) {
     const { start_index, end_index } = get_verse_range(i);
-    pages[i] = all_verses.slice(start_index, end_index + 1);//FIX THIS NEXT 
+    pages[i] = all_verses.slice(start_index, end_index + 1);
 }
 
-const this_page = pages[page_number];
-//console.log(`Verses for page ${page_number}:`, this_page);
-export { this_page };
+const this_page_verses = pages[page_number];
+console.log(`Verses for page ${page_number}:`, this_page_verses);
+export { this_page_verses };
