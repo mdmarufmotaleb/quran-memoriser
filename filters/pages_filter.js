@@ -28,11 +28,16 @@ const get_verse_range = (page_number) => {
     return { start_index, end_index };
 };
 
-for (let i = 1; i <= page_number; i++) {
-    const { start_index, end_index } = get_verse_range(i);
-    pages[i] = all_verses.slice(start_index, end_index + 1);
+if (page_number !== null) {
+    for (let i = 1; i <= page_number; i++) {
+        const { start_index, end_index } = get_verse_range(i);
+        pages[i] = all_verses.slice(start_index, end_index + 1);
+    }
+
+    var this_page_verses = pages[page_number];
+} else {
+    var this_page_verses = null;
 }
 
-const this_page_verses = pages[page_number];
-console.log(`Verses for page ${page_number}:`, this_page_verses);
+console.log("Page number: " + page_number);
 export { this_page_verses };

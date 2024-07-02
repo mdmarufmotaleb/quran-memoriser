@@ -2,38 +2,46 @@ import { this_chapter_verses } from "./filters/chapters_filter.js";
 import { this_page_verses } from "./filters/pages_filter.js";
 
 function mesh_filters(this_chapter_verses, this_page_verses) {
-    return [this_chapter_verses, this_page_verses];
+    const filters_meshed = [];
+    if (this_chapter_verses !== null) {
+        filters_meshed.push(this_chapter_verses);
+    }
+    if (this_page_verses !== null) {
+        filters_meshed.push(this_page_verses);
+    }
+    return filters_meshed;
 }
 
-//currently selected between 0 and 1 since there are 2 items in mesh filters
-function choose_filter() {
-    return Math.floor(Math.random() * 2);
+function choose_filter(all_filtered_verses) {
+    return Math.floor(Math.random() * all_filtered_verses.length);
 }
 
 function generate_random_verse(selected_filtered_verses) {
-    const this_verse_number = Math.floor(Math.random() * selected_filtered_verses.length);
-    const next_verse_number = this_verse_number + 1;
+    const this_verse_index = Math.floor(Math.random() * selected_filtered_verses.length);
+    const next_verse_index = this_verse_index + 1;
 
 
-    if (index_exists(selected_filtered_verses), next_verse_number) {
-        console.log("Index exists for next verse");
-        console.log("next verse: " + selected_filtered_verses[next_verse_number]);
-        return [selected_filtered_verses[this_verse_number], selected_filtered_verses[next_verse_number]];
+    const this_verse = selected_filtered_verses[this_verse_index];
+    var next_verse = "End of Chapter";
+    
+    if (index_exists(selected_filtered_verses, next_verse_index)) {
+        return [this_verse, selected_filtered_verses[next_verse_index]];
     } else {
-        console.log("index doesnt exist for next verse");
-        return [selected_filtered_verses[this_verse_number], "End of Chapter"]
+        return [this_verse, next_verse];
     }
 }
 
-//this is faulty check this. also if we reach the end of the chpater, it says end of chapter. but end of page, it should say end of page etc;
 function index_exists(array, index) {
     return index >= 0 && index < array.length;
 }
 
 const all_filtered_verses = mesh_filters(this_chapter_verses, this_page_verses);
-const selected_filtered_verses = all_filtered_verses[choose_filter()];
+const selected_filtered_verses = all_filtered_verses[choose_filter(all_filtered_verses)];
 
 const [this_verse, next_verse] = generate_random_verse(selected_filtered_verses);
+
+console.log("This verse: " + this_verse);
+console.log("Next verse: " + next_verse);
 
 export {this_verse, next_verse};
 
