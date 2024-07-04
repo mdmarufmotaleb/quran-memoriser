@@ -2,14 +2,14 @@ import { this_chapter_verses } from "./filters/chapters_filter.js";
 import { this_page_verses } from "./filters/pages_filter.js";
 
 function mesh_filters(this_chapter_verses, this_page_verses) {
-    const filters_meshed = [];
+    const meshed_filters = [];
     if (this_chapter_verses !== null) {
-        filters_meshed.push(this_chapter_verses);
+        meshed_filters.push(this_chapter_verses);
     }
     if (this_page_verses !== null) {
-        filters_meshed.push(this_page_verses);
+        meshed_filters.push(this_page_verses);
     }
-    return filters_meshed;
+    return meshed_filters;
 }
 
 function choose_filter(all_filtered_verses) {
@@ -17,17 +17,12 @@ function choose_filter(all_filtered_verses) {
 }
 
 function generate_random_verse(selected_filtered_verses) {
-    const this_verse_index = Math.floor(Math.random() * selected_filtered_verses.length);
-    const next_verse_index = this_verse_index + 1;
+    const verse_index = Math.floor(Math.random() * selected_filtered_verses.length);
 
-    const this_verse = selected_filtered_verses[this_verse_index];
-    var next_verse = "End of Selection";
+    const verse = selected_filtered_verses[verse_index];
     
-    if (index_exists(selected_filtered_verses, next_verse_index)) {
-        return [this_verse, selected_filtered_verses[next_verse_index]];
-    } else {
-        return [this_verse, next_verse];
-    }
+
+    return [verse];
 }
 
 function index_exists(array, index) {

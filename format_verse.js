@@ -12,10 +12,9 @@ function show_words(verse, number_of_words) {
     return shown_verse;
 }
 
-function format_verse(this_verse, next_verse, number_of_words) {
-    const trimmed_this_verse = show_words(this_verse, number_of_words);
-    const trimmed_next_verse = show_words(next_verse, number_of_words);
-    return [trimmed_this_verse, trimmed_next_verse];
+function format_verse(verse, number_of_words) {
+    const trimmed_verse = show_words(verse, number_of_words);
+    return [trimmed_verse];
 }
 
 export { show_words, format_verse };
