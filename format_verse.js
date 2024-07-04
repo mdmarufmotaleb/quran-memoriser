@@ -3,7 +3,7 @@ function is_end_of_verse(shown_verse, whole_verse) {
 }
 
 function show_words(verse, number_of_words) {
-    const split_verses = verse.split(' ');
+    var split_verses = verse.split(' ');
     let shown_verse = (split_verses.slice(0, number_of_words)).join(' ');
 
     if (!is_end_of_verse(shown_verse, verse)) {
@@ -13,7 +13,7 @@ function show_words(verse, number_of_words) {
 }
 
 function format_verse(verse, number_of_words) {
-    const trimmed_verse = show_words(verse, number_of_words);
+    var trimmed_verse = show_words(verse, number_of_words);
     return [trimmed_verse];
 }
 
