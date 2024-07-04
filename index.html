@@ -3,40 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Page</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic&display=swap" rel="stylesheet">
-    <script src="main.js" type="module" defer></script>
+    <title>Test Title</title>
 </head>
 <body>
-    <button onclick="run_main()">Generate</button>
-    <textarea id="test" readonly></textarea>
-     
-    <div>
-        <textarea class="output" id="current_verse_output" readonly></textarea>
-        <textarea class="output" id="next_verse_output" readonly></textarea>
-    </div>
-    
+    <h1>Test Title</h1>
+    <button onclick="show_verse()">Click Me</button>
+    <div id="show_verse">Output will be displayed here.</div>
 
-
-
-
-    <script>
-        function run_main() {
-            import('./main.js').then(module => {
-                module.main();
-            }).catch(error => {
-                console.error('Failed to import main.js:', error);
-            });
-        }
-
-        // function run_show_words() {
-        //     import('./main.js').then(module => {
-        //         module.show_words();
-        //     }).catch(error => {
-        //         console.error('Failed to import main.js:', error);
-        //     });
-        // }
-    </script>
+    <script type="module" src="show_verse.js"></script>
 </body>
 </html>

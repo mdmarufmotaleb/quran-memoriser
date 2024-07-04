@@ -22,3 +22,4 @@ var trimmed_next_verse = show_words(next_verse, 3);
 console.log("From display verses file");
 console.log(trimmed_next_verse);
 
+export { trimmed_this_verse, trimmed_next_verse };
