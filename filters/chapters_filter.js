@@ -3,7 +3,7 @@ import { chapter_number } from "./filter.js";
 
 let this_chapter_verses = null;
 
-const get_verses = (chapter) => {
+var get_verses = (chapter) => {
     let chapter_verses = [];
     for (let verse_number in chapter) {
         if (chapter.hasOwnProperty(verse_number)) {
@@ -14,7 +14,7 @@ const get_verses = (chapter) => {
 };
 
 if (chapter_number !== null) {
-    const this_chapter = all_chapters[chapter_number - 1].verses;
+    var this_chapter = all_chapters[chapter_number - 1].verses;
     this_chapter_verses = get_verses(this_chapter);
 }
 

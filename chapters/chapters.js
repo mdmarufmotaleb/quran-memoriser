@@ -13,7 +13,7 @@ import * as chapter_112 from './chapter_112.js';
 import * as chapter_113 from './chapter_113.js';
 import * as chapter_114 from './chapter_114.js';
 
-const all_chapters = [
+var all_chapters = [
     { verses: chapter_1.chapter_1_verses },
     { verses: chapter_2.chapter_2_verses },
     { verses: chapter_3.chapter_3_verses },
@@ -22,11 +22,11 @@ const all_chapters = [
 
 //fix this next. check the below codes esp all verses.
 
-const chapter_and_verse_number = {};
+var chapter_and_verse_number = {};
 
 all_chapters.forEach((chapter, index) => {
-    const chapter_number = index + 1;
-    const number_of_verses = Object.keys(chapter.verses).length;
+    var chapter_number = index + 1;
+    var number_of_verses = Object.keys(chapter.verses).length;
     chapter_and_verse_number[chapter_number] = number_of_verses;
 });
 
@@ -41,6 +41,6 @@ function get_all_verses() {
     return merged_verses;
 
 }
-const all_verses = get_all_verses();
+var all_verses = get_all_verses();
 
 export { all_chapters, chapter_and_verse_number, all_verses };

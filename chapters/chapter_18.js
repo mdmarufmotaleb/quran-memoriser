@@ -1,4 +1,4 @@
-const chapter_18_verses = {
+var chapter_18_verses = {
     1: "",
     2: "",
     3: ""

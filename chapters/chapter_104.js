@@ -1,4 +1,4 @@
-const chapter_104_verses = {
+var chapter_104_verses = {
 //NO NEED FOR CHANGES IN THIS FILE. READ THE INSTRUCTIONS AND MAKE NEW FILES BY COPYING AND PASTING THIS ONE 
     1: "وَيْلٌۭ لِّكُلِّ هُمَزَةٍۢ لُّمَزَةٍ ١",
     2: "ٱلَّذِى جَمَعَ مَالًۭا وَعَدَّدَهُۥ ٢",

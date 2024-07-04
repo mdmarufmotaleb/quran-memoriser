@@ -1,9 +1,9 @@
 import { all_verses } from '../chapters/chapters.js';
 import { page_number } from './filter.js';
 
-const pages = {};
+var pages = {};
 
-const get_verse_range = (page_number) => {
+var get_verse_range = (page_number) => {
     let start_index, end_index;
 
     switch (page_number) {
@@ -30,7 +30,7 @@ const get_verse_range = (page_number) => {
 
 if (page_number !== null) {
     for (let i = 1; i <= page_number; i++) {
-        const { start_index, end_index } = get_verse_range(i);
+        var { start_index, end_index } = get_verse_range(i);
         pages[i] = all_verses.slice(start_index, end_index + 1);
     }
 

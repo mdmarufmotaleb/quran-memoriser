@@ -34,15 +34,10 @@ function index_exists(array, index) {
     return index >= 0 && index < array.length;
 }
 
-const all_filtered_verses = mesh_filters(this_chapter_verses, this_page_verses);
-const selected_filtered_verses = all_filtered_verses[choose_filter(all_filtered_verses)];
+function generate() {
+    const all_filtered_verses = mesh_filters(this_chapter_verses, this_page_verses);
+    const selected_filtered_verses = all_filtered_verses[choose_filter(all_filtered_verses)];
+    return generate_random_verse(selected_filtered_verses);
+}
 
-
-const [this_verse, next_verse] = generate_random_verse(selected_filtered_verses);
-
-console.log("This verse: " + this_verse);
-console.log("Next verse: " + next_verse);
-
-export {this_verse, next_verse};
-
-
+export { generate };
