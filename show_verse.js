@@ -19,5 +19,12 @@ function next_word() {
     document.getElementById('show_verse').textContent = trimmed_verse;
 }
 
+function show_whole_verse() {
+    current_number_words = 250;
+    const trimmed_verse = show_words(current_verse, current_number_words);
+    document.getElementById('show_verse').textContent = trimmed_verse;
+}
+
 window.show_verse = show_verse;
 window.next_word = next_word;
+window.show_whole_verse = show_whole_verse;
