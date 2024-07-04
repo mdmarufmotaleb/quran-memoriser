@@ -20,9 +20,8 @@ function generate_random_verse(selected_filtered_verses) {
     const this_verse_index = Math.floor(Math.random() * selected_filtered_verses.length);
     const next_verse_index = this_verse_index + 1;
 
-
     const this_verse = selected_filtered_verses[this_verse_index];
-    var next_verse = "End of Chapter";
+    var next_verse = "End of Selection";
     
     if (index_exists(selected_filtered_verses, next_verse_index)) {
         return [this_verse, selected_filtered_verses[next_verse_index]];
@@ -37,6 +36,7 @@ function index_exists(array, index) {
 
 const all_filtered_verses = mesh_filters(this_chapter_verses, this_page_verses);
 const selected_filtered_verses = all_filtered_verses[choose_filter(all_filtered_verses)];
+
 
 const [this_verse, next_verse] = generate_random_verse(selected_filtered_verses);
 
