@@ -1,7 +1,7 @@
 import { generate } from './generate.js';
 import { show_words } from './format_verse.js';
 
-let current_verse = '';
+let verse = '';
 let current_number_of_words = 3;
 let selected_filtered_verses, verse_index;
 var end_of_selection = false;
@@ -10,23 +10,23 @@ var beginning_of_selection = false;
 async function show_verse() {
     current_number_of_words = 3; 
     [selected_filtered_verses, verse_index] = generate();
-    var verse = selected_filtered_verses[verse_index];
-    current_verse = verse;
+    verse = selected_filtered_verses[verse_index];
 
     var trimmed_verse = show_words(verse, current_number_of_words);
     document.getElementById('show_verse').textContent = trimmed_verse;
 }
 
-function show_next_verse() {
+//SHOW NEXT AND PREVIOUS VERSES ARE a (tiny) bit GLIXED. IF U GO TO BEGINNING OF SELECTION AND CLCIK NEXT VERSE, HALF THE TIME IT TAKES U TO THE 2ND NEXT VERSE. IT HAS SOMETHING TO DO WITH BEGINNING OF VERSE BOOLENS
+async function show_next_verse() {
     current_number_of_words = 3;
 
     if (index_exists(selected_filtered_verses, verse_index + 1)) {
-        var verse = selected_filtered_verses[verse_index + 1];
-        current_verse = verse;
+        verse_index++;
+        verse = selected_filtered_verses[verse_index];
 
         var trimmed_verse = show_words(verse, current_number_of_words);
         end_of_selection = false;
-        verse_index++;
+        
         document.getElementById('show_verse').textContent = trimmed_verse;
 
     } else {
@@ -39,16 +39,16 @@ function show_next_verse() {
     
 }
 
-function show_previous_verse() {
+async function show_previous_verse() {
     current_number_of_words = 3;
     
     if (index_exists(selected_filtered_verses, verse_index - 1)) {
-        var verse = selected_filtered_verses[verse_index - 1];
-        current_verse = verse;
+        verse_index--;
+        verse = selected_filtered_verses[verse_index];
 
         var trimmed_verse = show_words(verse, current_number_of_words);
         beginning_of_selection = false;
-        verse_index--;
+        
         document.getElementById('show_verse').textContent = trimmed_verse;
     } else {
         if(!beginning_of_selection){
@@ -57,7 +57,6 @@ function show_previous_verse() {
         beginning_of_selection = true;
         document.getElementById('show_verse').textContent = "Beginning of Selection";
     }
-    verse_index--;
 }
 
 
@@ -70,12 +69,12 @@ function is_end_of_verse(shown_verse, whole_verse) {
 }
 
 function next_word() { 
-    var trimmed_verse = show_words(current_verse, current_number_of_words);
+    var trimmed_verse = show_words(verse, current_number_of_words);
     
-    if (!is_end_of_verse(trimmed_verse, current_verse)) {
+    if (!is_end_of_verse(trimmed_verse, verse)) {
         current_number_of_words++;
     }
-    trimmed_verse = show_words(current_verse, current_number_of_words);
+    trimmed_verse = show_words(verse, current_number_of_words);
     document.getElementById('show_verse').textContent = trimmed_verse;
 }
 
@@ -84,15 +83,15 @@ function previous_word() {
         current_number_of_words--;
     }
     
-    var trimmed_verse = show_words(current_verse, current_number_of_words);
+    var trimmed_verse = show_words(verse, current_number_of_words);
     document.getElementById('show_verse').textContent = trimmed_verse;
 }
 
 function show_whole_verse() {
-    var trimmed_verse = show_words(current_verse, current_number_of_words);
-    while (!is_end_of_verse(trimmed_verse, current_verse)) {
+    var trimmed_verse = show_words(verse, current_number_of_words);
+    while (!is_end_of_verse(trimmed_verse, verse)) {
         current_number_of_words++;
-        trimmed_verse = show_words(current_verse, current_number_of_words);
+        trimmed_verse = show_words(verse, current_number_of_words);
     };
 
     document.getElementById('show_verse').textContent = trimmed_verse;
