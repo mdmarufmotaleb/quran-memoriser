@@ -16,15 +16,16 @@ async function show_verse() {
     document.getElementById('show_verse').textContent = trimmed_verse;
 }
 
-//SHOW NEXT AND PREVIOUS VERSES ARE a (tiny) bit GLIXED. IF U GO TO BEGINNING OF SELECTION AND CLCIK NEXT VERSE, HALF THE TIME IT TAKES U TO THE 2ND NEXT VERSE. IT HAS SOMETHING TO DO WITH BEGINNING OF VERSE BOOLENS
 async function show_next_verse() {
     current_number_of_words = 3;
 
     if (index_exists(selected_filtered_verses, verse_index + 1)) {
+
         verse_index++;
         verse = selected_filtered_verses[verse_index];
 
         var trimmed_verse = show_words(verse, current_number_of_words);
+        beginning_of_selection = false;
         end_of_selection = false;
         
         document.getElementById('show_verse').textContent = trimmed_verse;
@@ -36,7 +37,6 @@ async function show_next_verse() {
         end_of_selection = true;
         document.getElementById('show_verse').textContent = "End of Selection";
     }
-    
 }
 
 async function show_previous_verse() {
@@ -48,6 +48,7 @@ async function show_previous_verse() {
 
         var trimmed_verse = show_words(verse, current_number_of_words);
         beginning_of_selection = false;
+        end_of_selection = false;
         
         document.getElementById('show_verse').textContent = trimmed_verse;
     } else {
