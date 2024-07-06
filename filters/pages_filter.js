@@ -39,5 +39,5 @@ if (page_number !== null) {
     var this_page_verses = null;
 }
 
-console.log("Page number: " + page_number);
+
 export { this_page_verses };

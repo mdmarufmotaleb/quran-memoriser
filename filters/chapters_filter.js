@@ -18,7 +18,5 @@ if (chapter_number !== null) {
     this_chapter_verses = get_verses(this_chapter);
 }
 
-console.log("chapter number:");
-console.log(chapter_number);
 
 export { this_chapter_verses };

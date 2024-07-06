@@ -1,8 +1,11 @@
 import { this_chapter_verses } from "./filters/chapters_filter.js";
-import { this_hizb_verses } from "./filters/hizb_filter.js";
 import { this_page_verses } from "./filters/pages_filter.js";
+import { this_hizb_verses } from "./filters/hizb_filter.js";
+
 
 function mesh_filters(this_chapter_verses, this_page_verses, this_hizb_verses) {
+
+
     var meshed_filters = [];
     if (this_chapter_verses !== null) {
         meshed_filters.push(this_chapter_verses);
