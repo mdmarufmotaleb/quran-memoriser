@@ -1,5 +1,5 @@
 import { generate } from './generate.js';
-import { format_verse, show_words } from './format_verse.js';
+import { show_words } from './format_verse.js';
 
 let current_verse = '';
 let current_number_of_words = 3;
@@ -10,9 +10,11 @@ async function show_verse() {
     var verse = selected_filtered_verses[verse_index];
     current_verse = verse;
 
-    var [trimmed_verse] = format_verse(verse, current_number_of_words);
+    var trimmed_verse = show_words(verse, current_number_of_words);
     document.getElementById('show_verse').textContent = trimmed_verse;
 }
+
+
 
 function index_exists(array, index) {
     return index >= 0 && index < array.length;

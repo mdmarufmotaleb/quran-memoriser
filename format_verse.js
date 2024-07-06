@@ -12,9 +12,5 @@ function show_words(verse, number_of_words) {
     return shown_verse;
 }
 
-function format_verse(verse, number_of_words) {
-    var trimmed_verse = show_words(verse, number_of_words);
-    return [trimmed_verse];
-}
 
-export { show_words, format_verse };
+export { show_words };
