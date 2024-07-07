@@ -57,4 +57,4 @@ var page_number = filter(min_page, max_page);
 var hizb_number = filter(min_hizb, max_hizb);
 
 
-export { chapter_number, page_number, hizb_number };
+export { chapter_number, page_number, hizb_number, min_page, max_page };

@@ -1,7 +1,8 @@
 import { all_verses } from '../chapters/chapters.js';
 import { page_number } from './filter.js';
-
-var pages = {};
+//to do print out min max page in functio below
+//test imports
+import { min_page, max_page } from './filter.js';
 
 var get_verse_range = (page_number) => {
     let start_index, end_index;
@@ -28,16 +29,23 @@ var get_verse_range = (page_number) => {
     return { start_index, end_index };
 };
 
-if (page_number !== null) {
-    for (let i = 1; i <= page_number; i++) {
-        var { start_index, end_index } = get_verse_range(i);
-        pages[i] = all_verses.slice(start_index, end_index + 1);
+export function this_page_verses() {
+    console.log("min page from pages filer: " + min_page);
+    console.log("max page from pages filer: " + max_page);
+
+    var pages = {};
+
+    if (page_number !== null) {
+        for (let i = 1; i <= page_number; i++) {
+            var { start_index, end_index } = get_verse_range(i);
+            pages[i] = all_verses.slice(start_index, end_index + 1);
+        }
+    
+        var this_page_verses = pages[page_number];
+    } else {
+        var this_page_verses = null;
     }
 
-    var this_page_verses = pages[page_number];
-} else {
-    var this_page_verses = null;
+    return this_page_verses;
+
 }
-
-
-export { this_page_verses };
