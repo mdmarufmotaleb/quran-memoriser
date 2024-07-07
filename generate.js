@@ -26,8 +26,6 @@ function choose_filter(all_filtered_verses) {
 function generate_random_verse(selected_filtered_verses) {
     var verse_index = Math.floor(Math.random() * selected_filtered_verses.length);
 
-    var verse = selected_filtered_verses[verse_index];
-    
 
     return [selected_filtered_verses, verse_index];
 }

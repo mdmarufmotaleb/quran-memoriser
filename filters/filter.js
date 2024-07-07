@@ -1,3 +1,5 @@
+import { show_verse } from "../show_verse.js";
+
 var min_chapter = null;
 var max_chapter = null;
 
@@ -11,7 +13,14 @@ document.getElementById('select_min_page').addEventListener('change', function()
     } else {
         min_page = parseInt(this.value); 
     }
+
+    if(min_page > max_page) {
+        max_page = min_page;
+        document.getElementById('select_max_page').value = max_page.toString();
+    }
+
     page_number = filter(min_page, max_page);
+    show_verse();
    
 });
 
@@ -21,7 +30,13 @@ document.getElementById('select_max_page').addEventListener('change', function()
     } else {
         max_page = parseInt(this.value);
     }
+
+    if(max_page < min_page) {
+        min_page = max_page;
+        document.getElementById('select_min_page').value = min_page.toString();
+    }
     page_number = filter(min_page, max_page);
+    show_verse();
 
 });
 
