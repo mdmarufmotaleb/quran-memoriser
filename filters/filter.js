@@ -1,6 +1,6 @@
 var min_chapter = null;
 var max_chapter = null;
-
+console.log("t");
 var min_page = null;
 var max_page = null;
 
