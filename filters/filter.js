@@ -4,8 +4,8 @@ var max_chapter = null;
 var min_page = null;
 var max_page = null;
 
-var min_hizb = 1;
-var max_hizb = 1;
+var min_hizb = null;
+var max_hizb = null;
 
 document.getElementById('select_min_chapter').addEventListener('change', function() {
     if (this.value === '') {
