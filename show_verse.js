@@ -1,5 +1,6 @@
 import { generate } from './generate.js';
 import { show_words } from './format_verse.js';
+import { chapter_number, page_number, hizb_number } from './filters/filter.js';
 
 let verse = '';
 let current_number_of_words = 3;
@@ -14,6 +15,7 @@ async function show_verse() {
 
     var trimmed_verse = show_words(verse, current_number_of_words);
     document.getElementById('show_verse').textContent = trimmed_verse;
+    show_verse_info();
 }
 
 async function show_next_verse() {
@@ -96,6 +98,12 @@ function show_whole_verse() {
     };
 
     document.getElementById('show_verse').textContent = trimmed_verse;
+}
+
+function show_verse_info() {
+    document.getElementById('chapter').textContent = chapter_number;
+    document.getElementById('page').textContent = page_number;
+    document.getElementById('hizb').textContent = hizb_number;
 }
 
 window.show_verse = show_verse;

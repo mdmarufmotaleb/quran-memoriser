@@ -20,7 +20,6 @@ var all_chapters = [
     { verses: chapter_4.chapter_4_verses }
 ];
 
-//fix this next. check the below codes esp all verses.
 
 var chapter_and_verse_number = {};
 
