@@ -1,8 +1,6 @@
 import { all_verses } from '../chapters/chapters.js';
 import { hizb_number } from './filter.js';
 
-var hizb = {};
-
 var get_verse_range = (hizb_number) => {
     let start_index, end_index;
 
@@ -37,15 +35,18 @@ var get_verse_range = (hizb_number) => {
     return { start_index, end_index };
 };
 
-if (hizb_number !== null) {
-    for (let i = 1; i <= hizb_number; i++) {
-        var { start_index, end_index } = get_verse_range(i);
-        hizb[i] = all_verses.slice(start_index, end_index + 1);
+export function this_hizb_verses() {
+    var hizb = {};
+
+    if (hizb_number !== null) {
+        for (let i = 1; i <= hizb_number; i++) {
+            var { start_index, end_index } = get_verse_range(i);
+            hizb[i] = all_verses.slice(start_index, end_index + 1);
+        }
+    
+        var this_hizb_verses = hizb[hizb_number];
+    } else {
+        var this_hizb_verses = null;
     }
-
-    var this_hizb_verses = hizb[hizb_number];
-} else {
-    var this_hizb_verses = null;
+    return this_hizb_verses
 }
-
-export { this_hizb_verses };

@@ -16,8 +16,8 @@ function mesh_filters(this_chapter_verses, this_page_verses, this_hizb_verses) {
         meshed_filters.push(this_page_verses());
     }
 
-    if (this_hizb_verses !== null) {
-        meshed_filters.push(this_hizb_verses);
+    if (this_hizb_verses() !== null) {
+        meshed_filters.push(this_hizb_verses());
     }
     return meshed_filters;
 }
