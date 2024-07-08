@@ -104,5 +104,3 @@ window.previous_word = previous_word;
 window.show_whole_verse = show_whole_verse;
 window.show_next_verse = show_next_verse;
 window.show_previous_verse = show_previous_verse;
-
-export { show_verse };

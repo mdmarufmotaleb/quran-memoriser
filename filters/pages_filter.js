@@ -1,8 +1,5 @@
 import { all_verses } from '../chapters/chapters.js';
 import { page_number } from './filter.js';
-//to do print out min max page in functio below
-//test imports
-import { min_page, max_page } from './filter.js';
 
 var get_verse_range = (page_number) => {
     let start_index, end_index;
@@ -30,9 +27,6 @@ var get_verse_range = (page_number) => {
 };
 
 export function this_page_verses() {
-    console.log("min page from pages filer: " + min_page);
-    console.log("max page from pages filer: " + max_page);
-
     var pages = {};
 
     if (page_number !== null) {

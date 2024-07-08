@@ -1,10 +1,40 @@
-import { show_verse } from "../show_verse.js";
+var min_chapter = 1;
+var max_chapter = 1;
 
-var min_chapter = null;
-var max_chapter = null;
+document.getElementById('select_min_chapter').addEventListener('change', function() {
+    if (this.value === '') {
+        min_chapter = null;
+    } else {
+        min_chapter = parseInt(this.value); 
+    }
 
-var min_page = 1;
-var max_page = 2;
+    if(min_chapter > max_chapter) {
+        max_chapter = min_chapter;
+        document.getElementById('select_max_chapter').value = max_chapter.toString();
+    }
+
+    chapter_number = filter(min_chapter, max_chapter);
+   
+});
+
+document.getElementById('select_max_chapter').addEventListener('change', function() {
+    if (this.value === '') {
+        max_chapter = null;
+    } else {
+        max_chapter = parseInt(this.value); 
+    }
+
+    if(max_chapter < min_chapter) {
+        min_chapter = max_chapter;
+        document.getElementById('select_min_chapter').value = min_chapter.toString();
+    }
+
+    chapter_number = filter(min_chapter, max_chapter);
+   
+});
+
+var min_page = null;
+var max_page = null;
 
 
 document.getElementById('select_min_page').addEventListener('change', function() {
@@ -20,7 +50,6 @@ document.getElementById('select_min_page').addEventListener('change', function()
     }
 
     page_number = filter(min_page, max_page);
-    show_verse();
    
 });
 
@@ -36,7 +65,6 @@ document.getElementById('select_max_page').addEventListener('change', function()
         document.getElementById('select_min_page').value = min_page.toString();
     }
     page_number = filter(min_page, max_page);
-    show_verse();
 
 });
 
