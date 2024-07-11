@@ -7,7 +7,7 @@ function show_words(verse, number_of_words) {
     let shown_verse = (split_verses.slice(0, number_of_words)).join(' ');
 
     if (!is_end_of_verse(shown_verse, verse)) {
-        shown_verse = "... " + shown_verse;
+        shown_verse = shown_verse + "\u202E... ";
     }
     return shown_verse;
 }
