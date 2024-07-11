@@ -1,11 +1,11 @@
 var min_chapter = null;
 var max_chapter = null;
 
-var min_page = null;
-var max_page = null;
+var min_page = 12;
+var max_page = 13;
 
-var min_hizb = 5;
-var max_hizb = 5;
+var min_hizb = null;
+var max_hizb = null;
 
 document.getElementById('select_min_chapter').addEventListener('change', function() {
     if (this.value === '') {
