@@ -101,9 +101,9 @@ function show_whole_verse() {
 }
 
 function show_verse_info() {
-    document.getElementById('chapter').textContent = chapter_number;
-    document.getElementById('page').textContent = page_number;
-    document.getElementById('hizb').textContent = hizb_number;
+    document.getElementById('chapter').textContent = chapter_number();
+    document.getElementById('page').textContent = page_number();
+    document.getElementById('hizb').textContent = hizb_number();
 }
 
 window.show_verse = show_verse;

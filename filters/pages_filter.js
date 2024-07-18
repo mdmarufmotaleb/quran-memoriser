@@ -69,14 +69,15 @@ var get_verse_range = (page_number) => {
 
 export function this_page_verses() {
     var pages = {};
+    var this_page_number = page_number();
 
-    if (page_number !== null) {
-        for (let i = 1; i <= page_number; i++) {
+    if (this_page_number !== null) {
+        for (let i = 1; i <= this_page_number; i++) {
             var { start_index, end_index } = get_verse_range(i);
             pages[i] = all_verses.slice(start_index, end_index + 1);
         }
     
-        var this_page_verses = pages[page_number];
+        var this_page_verses = pages[this_page_number];
     } else {
         var this_page_verses = null;
     }

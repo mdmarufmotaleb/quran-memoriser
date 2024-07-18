@@ -37,14 +37,15 @@ var get_verse_range = (hizb_number) => {
 
 export function this_hizb_verses() {
     var hizb = {};
+    var this_hizb_number = hizb_number();
 
-    if (hizb_number !== null) {
-        for (let i = 1; i <= hizb_number; i++) {
+    if (this_hizb_number !== null) {
+        for (let i = 1; i <= this_hizb_number; i++) {
             var { start_index, end_index } = get_verse_range(i);
             hizb[i] = all_verses.slice(start_index, end_index + 1);
         }
     
-        var this_hizb_verses = hizb[hizb_number];
+        var this_hizb_verses = hizb[this_hizb_number];
     } else {
         var this_hizb_verses = null;
     }

@@ -1,11 +1,16 @@
 var min_chapter = null;
 var max_chapter = null;
 
-var min_page = 12;
-var max_page = 13;
+var min_page = null;
+var max_page = null;
 
 var min_hizb = null;
 var max_hizb = null;
+
+//these 3 are probably not needed. the exported values get a rng anyways without using these.
+var this_chapter_number = filter(min_chapter, max_chapter);
+var this_page_number = filter(min_page, max_page);
+var this_hizb_number = filter(min_hizb, max_hizb);
 
 document.getElementById('select_min_chapter').addEventListener('change', function() {
     if (this.value === '') {
@@ -19,7 +24,7 @@ document.getElementById('select_min_chapter').addEventListener('change', functio
         document.getElementById('select_max_chapter').value = max_chapter.toString();
     }
 
-    chapter_number = filter(min_chapter, max_chapter);
+    this_chapter_number = filter(min_chapter, max_chapter);
    
 });
 
@@ -35,11 +40,9 @@ document.getElementById('select_max_chapter').addEventListener('change', functio
         document.getElementById('select_min_chapter').value = min_chapter.toString();
     }
 
-    chapter_number = filter(min_chapter, max_chapter);
+    this_chapter_number = filter(min_chapter, max_chapter);
    
 });
-
-
 
 document.getElementById('select_min_page').addEventListener('change', function() {
     if (this.value === '') {
@@ -53,7 +56,7 @@ document.getElementById('select_min_page').addEventListener('change', function()
         document.getElementById('select_max_page').value = max_page.toString();
     }
 
-    page_number = filter(min_page, max_page);
+    this_page_number = filter(min_page, max_page);
    
 });
 
@@ -68,7 +71,7 @@ document.getElementById('select_max_page').addEventListener('change', function()
         min_page = max_page;
         document.getElementById('select_min_page').value = min_page.toString();
     }
-    page_number = filter(min_page, max_page);
+    this_page_number = filter(min_page, max_page);
 
 });
 
@@ -85,7 +88,7 @@ document.getElementById('select_min_hizb').addEventListener('change', function()
         document.getElementById('select_max_hizb').value = max_hizb.toString();
     }
 
-    hizb_number = filter(min_hizb, max_hizb);
+    this_hizb_number = filter(min_hizb, max_hizb);
    
 });
 
@@ -100,7 +103,7 @@ document.getElementById('select_max_hizb').addEventListener('change', function()
         min_hizb = max_hizb;
         document.getElementById('select_min_hizb').value = min_hizb.toString();
     }
-    hizb_number = filter(min_hizb, max_hizb);
+    this_hizb_number = filter(min_hizb, max_hizb);
 
 });
 
@@ -113,9 +116,26 @@ function filter(min, max) {
 }
 
 
-var chapter_number = filter(min_chapter, max_chapter);
-var page_number = filter(min_page, max_page);
-var hizb_number = filter(min_hizb, max_hizb);
+export function hizb_number() {
+    return filter(min_hizb, max_hizb);
+}
 
+export function page_number() {
+    return filter(min_page, max_page);
+}
 
-export { chapter_number, page_number, hizb_number };
+export function chapter_number() {
+    return filter(min_chapter, max_chapter);
+}
+
+// export function hizb_number() {
+//     return this_hizb_number;
+// }
+
+// export function page_number() {
+//     return this_page_number;
+// }
+
+// export function chapter_number() {
+//     return this_chapter_number;
+// }

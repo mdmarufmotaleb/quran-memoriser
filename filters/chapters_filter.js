@@ -15,8 +15,9 @@ var get_verses = (chapter) => {
 export function this_chapter_verses() {
     let this_chapter_verses = null;
 
-    if (chapter_number !== null) {
-        var this_chapter = all_chapters[chapter_number - 1].verses;
+    var this_chapter_number = chapter_number();
+    if (this_chapter_number !== null) {
+        var this_chapter = all_chapters[this_chapter_number - 1].verses;
         this_chapter_verses = get_verses(this_chapter);
     }
 
