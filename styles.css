@@ -1,8 +1,102 @@
-/* styles.css */
+body {
+    background-color: #D0E7D2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
 
-.output {
-    width: 400px; 
-    height: 100px;
-    font-family: 'Noto Naskh Arabic', serif;
-    font-size: 18px; 
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+}
+
+#title {
+    color: #618264;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+.output-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#show_verse {
+    background-color: #B0D9B1;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+}
+
+#eye_icon {
+    margin-right: 5px; /* Adjust the margin to bring the icon closer to the box */
+    cursor: pointer;
+    color: #618264; /* Match the rest of the text */
+}
+
+#eye_icon:hover {
+    color: #79AC78; /* Light up on hover */
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: nowrap; /* Ensure buttons are in a single line */
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.button-group button {
+    background-color: #79AC78;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+    cursor: pointer;
+}
+
+.button-group button:hover {
+    background-color: #618264;
+}
+
+#generate {
+    background-color: #618264;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filters div {
+    margin-bottom: 10px;
+    text-align: left;
+    width: 100%;
+    max-width: 400px;
+}
+
+.filters label {
+    display: inline-block;
+    width: 150px;
+    color: #618264;
+}
+
+.filters select {
+    width: calc(100% - 160px);
+    padding: 5px;
+    background-color: #B0D9B1; /* Match the background color */
 }
