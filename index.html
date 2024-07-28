@@ -152,9 +152,11 @@
             if (filters.style.visibility === 'hidden' || filters.style.visibility === '') {
                 filters.style.visibility = 'visible';
                 button.textContent = 'Hide Filters';
+                button.classList.add('arrow-up'); // Add this line
             } else {
                 filters.style.visibility = 'hidden';
                 button.textContent = 'Show Filters';
+                button.classList.remove('arrow-up'); // Add this line
             }
         }
     </script>

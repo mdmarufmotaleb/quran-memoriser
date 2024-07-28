@@ -30,13 +30,15 @@ body {
 }
 
 #show_verse {
-    background-color: #B0D9B1;
+    background-color: #B0D9B1; /* Background color */
     padding: 10px;
     border-radius: 5px;
     text-align: center;
     width: 90%;
     max-width: 400px;
     margin: auto;
+    color: #618264; /* Match text color */
+    font-family: 'Arial', sans-serif; /* Match font family */
 }
 
 #eye_icon {
@@ -87,20 +89,37 @@ body {
     visibility: visible; /* Show the filters */
 }
 
-
 #toggle-filters {
-    background-color: #79AC78;
-    color: white;
+    background-color: #B0D9B1; /* Match the output box color */
+    color: #618264; /* Text color to match the output box text */
     border: none;
-    padding: 10px 20px;
+    padding: 10px;
     border-radius: 5px;
     font-family: 'Arial', sans-serif;
     cursor: pointer;
     margin-bottom: 10px;
+    width: 90%; /* Same width as the output box */
+    max-width: 400px; /* Same max-width as the output box */
+    text-align: left; /* Align text to the left to make room for the arrow */
+    position: relative; /* To position the arrow */
+}
+
+#toggle-filters::after {
+    content: '▼'; /* Down arrow character */
+    position: absolute;
+    right: 10px; /* Position it inside the box on the right */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
+    font-size: 12px; /* Adjust size if needed */
+    color: #618264; /* Match text color */
+}
+
+#toggle-filters.arrow-up::after {
+    content: '▲'; /* Up arrow character */
 }
 
 #toggle-filters:hover {
-    background-color: #618264;
+    background-color: #B0D9B1; /* Maintain the same hover color */
 }
 
 .filters {
@@ -109,7 +128,6 @@ body {
     align-items: center;
     visibility: hidden; /* Change from display: none to visibility: hidden */
 }
-
 
 .filters div {
     margin-bottom: 10px;
@@ -127,5 +145,36 @@ body {
 .filters select {
     width: calc(100% - 160px);
     padding: 5px;
-    background-color: #B0D9B1;
+    background-color: #B0D9B1; /* Background color to match */
+    color: #618264; /* Text color to match */
+    font-family: 'Arial', sans-serif; /* Font family to match */
+    border: 1px solid #618264; /* Border color to match */
+    border-radius: 5px; /* Border radius to match */
+    appearance: none; /* Remove default arrow */
+    padding-right: 30px; /* Space for custom arrow */
+    position: relative; /* For custom arrow positioning */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23618264'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); /* Custom arrow image */
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px 12px;
+}
+
+.filters select::-ms-expand {
+    display: none; /* Remove default arrow in IE */
+}
+
+
+.filters select::after {
+    content: '▼'; /* Down arrow character */
+    position: absolute;
+    right: 10px; /* Position it inside the box on the right */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
+    font-size: 12px; /* Adjust size if needed */
+    color: #618264; /* Match text color */
+}
+
+.filters select option {
+    color: #618264; /* Match text color for options */
+    background-color: #B0D9B1; /* Match background color for options */
 }
