@@ -40,18 +40,18 @@ body {
 }
 
 #eye_icon {
-    margin-right: 5px; /* Adjust the margin to bring the icon closer to the box */
+    margin-right: 5px;
     cursor: pointer;
-    color: #618264; /* Match the rest of the text */
+    color: #618264;
 }
 
 #eye_icon:hover {
-    color: #79AC78; /* Light up on hover */
+    color: #79AC78;
 }
 
 .button-group {
     display: flex;
-    flex-wrap: nowrap; /* Ensure buttons are in a single line */
+    flex-wrap: nowrap;
     justify-content: center;
     gap: 10px;
     margin-bottom: 20px;
@@ -75,12 +75,41 @@ body {
     background-color: #618264;
 }
 
-.filters {
+.filters-dropdown {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+    height: 300px; /* Adjust this height based on your content */
 }
+
+.filters-dropdown.show {
+    visibility: visible; /* Show the filters */
+}
+
+
+#toggle-filters {
+    background-color: #79AC78;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#toggle-filters:hover {
+    background-color: #618264;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    visibility: hidden; /* Change from display: none to visibility: hidden */
+}
+
 
 .filters div {
     margin-bottom: 10px;
@@ -98,5 +127,5 @@ body {
 .filters select {
     width: calc(100% - 160px);
     padding: 5px;
-    background-color: #B0D9B1; /* Match the background color */
+    background-color: #B0D9B1;
 }

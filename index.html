@@ -11,7 +11,7 @@
         <h1 id="title">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ</h1>
         
         <div class="output-container">
-            <span id="eye_icon" onclick="show_whole_verse()">&#128065;</span> <!-- Eye icon outside the display box -->
+            <span id="eye_icon" onclick="show_whole_verse()">&#128065;</span>
             <div id="show_verse">Select a filter to continue</div>
         </div>
 
@@ -21,141 +21,142 @@
             <button id="generate" onclick="show_verse()">Generate</button>
             <button onclick="next_word()">Next Word</button>
             <button onclick="show_next_verse()">Next Verse</button>
-            
         </div>
 
-        <div class="filters">
-            <div>
-                <label for="select_min_chapter">Select min chapter </label>
-                <select id="select_min_chapter">
-                    <option value="">Do not include</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="select_max_chapter">Select max chapter </label>
-                <select id="select_max_chapter">
-                    <option value="">Do not include</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="select_min_page">Select min page: </label>
-                <select id="select_min_page">
-                    <option value="">Do not include</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="select_max_page">Select max page: </label>
-                <select id="select_max_page">
-                    <option value="">Do not include</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="select_min_hizb">Select min hizb: </label>
-                <select id="select_min_hizb">
-                    <option value="">Do not include</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="select_max_hizb">Select max hizb: </label>
-                <select id="select_max_hizb">
-                    <option value="">Do not include</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
+        <div class="filters-dropdown"> 
+            <button id="toggle-filters" onclick="toggleFilters()">Show Filters</button>
+            <div id="filters" class="filters">
+                <div>
+                    <label for="select_min_chapter">Select min chapter </label>
+                    <select id="select_min_chapter">
+                        <option value="">Do not include</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="select_max_chapter">Select max chapter </label>
+                    <select id="select_max_chapter">
+                        <option value="">Do not include</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="select_min_page">Select min page: </label>
+                    <select id="select_min_page">
+                        <option value="">Do not include</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="select_max_page">Select max page: </label>
+                    <select id="select_max_page">
+                        <option value="">Do not include</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="select_min_hizb">Select min half a juz: </label>
+                    <select id="select_min_hizb">
+                        <option value="">Do not include</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="select_max_hizb">Select max half a juz: </label>
+                    <select id="select_max_hizb">
+                        <option value="">Do not include</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
             </div>
         </div>
+        
     </div>
 
-    
-    <div>
+    <!-- <div>
         <h1>Verse Information CURRENTLY GLITCHED ALL 3 DOESNT UPDATE</h1>
-
         <label>Chapter: </label>
         <label id="chapter"></label><br>
-
         <label>Page: </label>
         <label id="page"></label><br>
-
-        <label>Hizb: </label>
+        <label>Half a juz: </label>
         <label id="hizb"></label><br>
     </div>
     
     TO DO:
-
-    If page 1 is selected and i keep doing next verse, it goes to the end of the verse and says end of selection when it should say that at the end of page 2
-    
+    If page 1 is selected and I keep doing next verse, it goes to the end of the verse and says end of selection when it should say that at the end of page 2
     The verse information above is not correct
-
-    is show previous word button needed?
-
-    also make it so nothing is generated if no filters are selected?
-
-    And hizb means half a juz, correct the terminology. And split this html file into separate ones
+    Is show previous word button needed?
+    Also make it so nothing is generated if no filters are selected? -->
 
     <script type="module" src="show_verse.js"></script>
     <script type="module" src="./filters/filter.js"></script>
+    <script>
+        function toggleFilters() {
+            const filters = document.getElementById('filters');
+            const button = document.getElementById('toggle-filters');
+            if (filters.style.visibility === 'hidden' || filters.style.visibility === '') {
+                filters.style.visibility = 'visible';
+                button.textContent = 'Hide Filters';
+            } else {
+                filters.style.visibility = 'hidden';
+                button.textContent = 'Show Filters';
+            }
+        }
+    </script>
 </body>
 </html>
