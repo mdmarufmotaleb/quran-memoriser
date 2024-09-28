@@ -37,7 +37,34 @@ var get_verse_range = (hizb_number) => {
             start_index = 130;
             end_index = 147;
             break;
-
+        case 9:
+            start_index = 148;
+            end_index = 163;
+            break;
+        case 10:
+            start_index = 164;
+            end_index = 182;
+            break;
+        case 11:
+            start_index = 183;
+            end_index = 194;
+            break;
+        case 12:
+            start_index = 195;
+            end_index = 208;
+            break;
+        // case 8:
+        //     start_index = 130;
+        //     end_index = 147;
+        //     break;
+        // case 8:
+        //     start_index = 130;
+        //     end_index = 147;
+        //     break;
+        // case 8:
+        //     start_index = 130;
+        //     end_index = 147;
+        //     break;
         default:
             start_index = 0;
             end_index = 0;
